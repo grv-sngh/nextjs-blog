@@ -44,7 +44,8 @@ export default function Layout({ children, home }) {
             <Link href="/">
               <Image
                 priority
-                src="/images/profile.png"
+                unoptimized
+                src="https://avatarfiles.alphacoders.com/314/314258.jpg"
                 className={utilStyles.borderCircle}
                 height={108}
                 width={108}

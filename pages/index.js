@@ -18,7 +18,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allPostsData }) {
-  const [toggleShow, setToggleShow] = useState(false);
+  const [toggleShow, setToggleShow] = useState(true);
 
   function showHide() {
     setToggleShow(!toggleShow);
@@ -30,7 +30,7 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
       {toggleShow && <About />}
-      <button onClick={showHide}>{toggleShow ? "SHOW" : "HIDE"}</button>
+      <button className={utilStyles.buttonMore} onClick={showHide}>{toggleShow ? "HIDE" : "SHOW"} INFO</button>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
