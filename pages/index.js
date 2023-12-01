@@ -4,6 +4,8 @@ import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
+import About from '../components/about';
+import { useState } from 'react';
 
 // Pre-rendering with data function to get the data at build time
 export async function getStaticProps() {
@@ -16,29 +18,30 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allPostsData }) {
+  const [toggleShow, setToggleShow] = useState(false);
+
+  function showHide() {
+    setToggleShow(!toggleShow);
+  }
+
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-        <p>Hi I'm Gaurav. I'm an Engineering Student at VESIT. You can find me here.</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-      </section>
+      {toggleShow && <About />}
+      <button onClick={showHide}>{toggleShow ? "SHOW" : "HIDE"}</button>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-            <Link href={`/posts/${id}`}>{title}</Link>
-            <br />
-            <small className={utilStyles.lightText}>
-              <Date dateString={date} />
-            </small>
-          </li>
+              <Link href={`/posts/${id}`}>{title}</Link>
+              <br />
+              <small className={utilStyles.lightText}>
+                <Date dateString={date} />
+              </small>
+            </li>
           ))}
         </ul>
       </section>
