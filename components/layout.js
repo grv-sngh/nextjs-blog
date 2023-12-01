@@ -30,7 +30,8 @@ export default function Layout({ children, home }) {
           <>
             <Image
               priority
-              src="/images/profile.png"
+              unoptimized
+              src="https://avatarfiles.alphacoders.com/314/314258.jpg"
               className={utilStyles.borderCircle}
               height={144}
               width={144}
