@@ -3,6 +3,7 @@ import { getAllPostIds, getPostData } from '../../lib/posts';
 import Head from 'next/head';
 import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
+import Counter from '../../components/counter';
 
 // Get post data and generate page content
 export async function getStaticProps({ params }) {
@@ -36,6 +37,7 @@ export default function Post({ postData }) {
             <Date dateString={postData.date} />
           </div>
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+          <Counter upvote={postData.upvote} downvote={postData.downvote}/>
         </article>
       </Layout>
     );
