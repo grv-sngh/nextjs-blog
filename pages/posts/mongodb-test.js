@@ -26,7 +26,7 @@ export default function DBPosts({ allPosts }) {
         <>
             <div>
                 <ul>
-                    {user_data}
+                    {/* {user_data} */}
                 </ul>
             </div>
         </>
