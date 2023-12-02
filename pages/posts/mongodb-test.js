@@ -12,11 +12,22 @@ export async function getServerSideProps(context) {
     };
 };
 
-export default function DBPosts() {
+export default function DBPosts({ allPosts }) {
+    const user_data = allPosts.data.map((user) =>
+        <li>
+            {user._id}
+            <ul>
+                <li>Name: {user.name}</li>
+                <li>Age: {user.age}</li>
+            </ul>
+        </li>
+    )
     return (
         <>
             <div>
-                <div dangerouslySetInnerHTML={allPosts}></div>
+                <ul>
+                    {user_data}
+                </ul>
             </div>
         </>
     )
