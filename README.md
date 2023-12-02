@@ -18,4 +18,10 @@ Log
     - Create `/lib/mongodb.js` and copy the code to connect the database
     - Create the API to `GET` and `POST` data in `/pages/api/posts.js`
     - Just what is the mess with API and end-points, get that cleared up
-    - 
+
+2/12/2023
+- Connecting MongoDB to the project
+    - Learn MongoDB and how to use the queries, installation and setup
+    - Successfully connected the database to the project
+    - Looked up fixes and found the solution, looking up and familarity with syntax is highly important
+    - Added list map to show all the data from the database
